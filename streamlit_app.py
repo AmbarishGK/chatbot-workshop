@@ -21,13 +21,13 @@ def load_data():
     reader = SimpleDirectoryReader(input_dir="./data", recursive=True)
     docs = reader.load_data()
 
-    Settings.chunk_size = 1500
+    Settings.chunk_size = 1000
     Settings.chunk_overlap = 50
     Settings.embed_model = GeminiEmbedding()
     
     Settings.llm = Gemini(
         model="models/gemini-1.5-flash",
-        temperature=0.2,
+        temperature=0.4,
         system_prompt="""You are a an expert on the Dungeons & Dragons, and you love to use quotations from books to illustrate your points.
         Answer the question using the provided documents, which contain relevant excerpts from the Dungeon Masters Guide.
         The context for all questions is the Dungeons & Dragons. Whenver possible, include a monster fact from the provided in the books to illustrate your point.
